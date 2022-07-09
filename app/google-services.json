@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "123447510575",
+    "project_id": "e-commerce-b68b1",
+    "storage_bucket": "e-commerce-b68b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123447510575:android:c44d81559bf709914728da",
+        "android_client_info": {
+          "package_name": "devs.redfox.local_e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123447510575-uhs9hqn6a1g7n9gjl9246l1d51qq74mn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "devs.redfox.local_e_commerce",
+            "certificate_hash": "85e1cbba514b243dd32b4335d42ba6a402f5c85e"
+          }
+        },
+        {
+          "client_id": "123447510575-v0oem2o5i1hj25e4okp62b4tefkvc61l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOJZ57uflUpUlICJQTJghM7FdVN_cfEZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123447510575-v0oem2o5i1hj25e4okp62b4tefkvc61l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
