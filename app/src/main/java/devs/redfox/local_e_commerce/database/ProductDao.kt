@@ -1,22 +1,20 @@
 package devs.redfox.local_e_commerce.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
 @Dao
 interface ProductDao {
 
-    @Insert
-    suspend fun insertProduct(product:ProductModel)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertProduct(vararg product:ProductModel)
 
     @Delete
-    suspend fun deleteProduct(product:ProductModel)
+    suspend fun deleteProduct(vararg product:ProductModel)
 
     @Query("SELECT * FROM products")
-    fun getAllProducts():List<ProductModel>
+    fun getAllProducts(): LiveData<List<ProductModel>>
 
     @Query("SELECT * FROM products WHERE productId = :id")
-    fun isExit(id:String):ProductModel
+    fun isExit(id : String) : ProductModel
 }

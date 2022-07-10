@@ -38,9 +38,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     implementation 'com.google.firebase:firebase-firestore:24.2.0'
-    def nav_version = "2.4.2"
+    def nav_version = '2.5.0'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -78,12 +78,12 @@ dependencies {
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
     //Room
-    def roomVersion = "2.4.2"
+    def roomVersion = "2.5.0-alpha02"
 
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+    implementation('org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3')
 }

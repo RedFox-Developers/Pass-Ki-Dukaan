@@ -12,8 +12,8 @@ data class ProductModel (
     val productId : String,
     @ColumnInfo(name = "productName")
     val productName : String? = "",
-    @ColumnInfo(name = "")
-    val productImage : String? = "productImage",
+    @ColumnInfo(name = "productImage")
+    val productImage : String? = "",
     @ColumnInfo(name = "productSp")
     val productSp : String? = "",
 
