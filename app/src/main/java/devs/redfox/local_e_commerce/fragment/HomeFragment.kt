@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
         val preference = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
 
-        if(preference.getBoolean("isCart",false))
+        if(preference.getBoolean("isCart",true))
             findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
 
         getCategories()
