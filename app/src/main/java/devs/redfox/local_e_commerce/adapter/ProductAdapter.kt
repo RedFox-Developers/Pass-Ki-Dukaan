@@ -1,11 +1,12 @@
 package devs.redfox.local_e_commerce.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import devs.redfox.local_e_commerce.databinding.CategoryItemBinding
+import devs.redfox.local_e_commerce.activity.ProductDetailActivity
 import devs.redfox.local_e_commerce.databinding.ProductItemBinding
 import devs.redfox.local_e_commerce.model.AddProductModel
 import kotlin.math.log
@@ -32,6 +33,12 @@ class ProductAdapter(val context:Context, val list : ArrayList<AddProductModel>)
         holder.binding.textView4.text = data.productMrp
 
         holder.binding.button.text = data.productSp
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ProductDetailActivity::class.java)
+            intent.putExtra("id",list[position].productId)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

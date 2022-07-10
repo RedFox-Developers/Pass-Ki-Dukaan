@@ -1,10 +1,12 @@
 package devs.redfox.local_e_commerce.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import devs.redfox.local_e_commerce.activity.CategoryActivity
 import devs.redfox.local_e_commerce.databinding.CategoryItemBinding
 import devs.redfox.local_e_commerce.model.CategoryModel
 
@@ -25,6 +27,12 @@ RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.binding.textView.text= list[position].cat
         Glide.with(context).load(list[position].img).into(holder.binding.imageView)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context,CategoryActivity::class.java)
+            intent.putExtra("cat",list[position].cat)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int{
