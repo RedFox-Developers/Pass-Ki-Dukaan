@@ -30,8 +30,14 @@ class MainActivity : AppCompatActivity() {
                     i = 0;
                     navController.navigate(R.id.homeFragment)
                 }
-                1 -> i = 1;
-                2 -> i = 2;
+                1 -> {
+                    i = 1;
+                    navController.navigate(R.id.cartFragment)
+                }
+                2 -> {
+                    i = 2;
+                    navController.navigate(R.id.moreFragment)
+                }
             }
         }
     }
