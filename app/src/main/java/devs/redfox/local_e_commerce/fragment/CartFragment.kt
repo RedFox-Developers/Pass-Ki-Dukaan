@@ -21,6 +21,7 @@ class CartFragment : Fragment() {
     private var _binding: FragmentCartBinding? = null
     private val binding
         get() = _binding!!
+    private lateinit var list : ArrayList<String>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,11 +36,17 @@ class CartFragment : Fragment() {
 
         val dao = AppDatabase.getInstance(requireContext()).productDao()
 
+        list = ArrayList()
+
         dao.getAllProducts().observe(requireActivity()){
             binding.rvCartFragment.adapter = CartAdapter(requireContext(),
                 it as ArrayList<ProductModel>
             )
 
+            list.clear()
+            for(data in it){
+                list.add(data.productId )
+            }
             totalCost(it)
         }
 
@@ -58,6 +65,7 @@ class CartFragment : Fragment() {
         binding.checkout.setOnClickListener {
             val intent = Intent(context, AddressActivity::class.java)
             intent.putExtra("totalCost", total)
+            intent.putExtra("productIds", list)
             startActivity(intent)
         }
     }

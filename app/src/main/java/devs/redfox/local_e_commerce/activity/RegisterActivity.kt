@@ -7,8 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import devs.redfox.local_e_commerce.MainActivity
-import devs.redfox.local_e_commerce.R
 import devs.redfox.local_e_commerce.databinding.ActivityRegisterBinding
 import devs.redfox.local_e_commerce.model.UserModel
 

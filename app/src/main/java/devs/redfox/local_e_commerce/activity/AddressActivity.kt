@@ -68,7 +68,9 @@ class AddressActivity : AppCompatActivity() {
             .document(preferences.getString("number","")!!)
             .update(map).addOnSuccessListener {
 
-                startActivity(Intent(this,CheckoutActivity::class.java))
+                val intent = Intent(this, CheckoutActivity::class.java)
+                intent.putExtra("productIds", intent.getStringArrayExtra("productIds"))
+                startActivity(intent)
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
@@ -82,7 +84,7 @@ class AddressActivity : AppCompatActivity() {
         Firebase.firestore.collection("users").document(preferences.getString("number","")!!)
             .get().addOnSuccessListener {
                 binding.userName.setText(it.getString("userName"))
-                binding.userNumber.setText(it.getString("userNumber"))
+                binding.userNumber.setText(it.getString("userPhoneNumber"))
                 binding.userAddress.setText(it.getString("address"))
                 binding.userCity.setText(it.getString("city"))
                 binding.userState.setText(it.getString("state"))
