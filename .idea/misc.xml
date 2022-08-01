@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_address.xml" value="0.3625" />
+        <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_category.xml" value="0.3625" />
+        <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_checkout.xml" value="0.264" />
         <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_otpactivity.xml" value="0.3625" />
         <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_product_detail.xml" value="0.271286231884058" />
         <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/activity_register.xml" value="0.3625" />
+        <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/category_item.xml" value="0.3625" />
+        <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/fragment_cart.xml" value="0.3625" />
         <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/item_category_product.xml" value="0.3625" />
         <entry key="..\:/Users/12mad/StudioProjects/Hackathon Projects/Local_E-Commerece_App/app/src/main/res/layout/layout_cart_item.xml" value="0.3625" />
         <entry key="..\:/Users/12mad/StudioProjects/LocalECommerce/app/src/main/res/layout/activity_category.xml" value="0.20416666666666666" />

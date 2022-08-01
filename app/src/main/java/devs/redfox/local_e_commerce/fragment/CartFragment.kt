@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import devs.redfox.local_e_commerce.R
+import devs.redfox.local_e_commerce.activity.AddressActivity
 import devs.redfox.local_e_commerce.activity.CategoryActivity
 import devs.redfox.local_e_commerce.adapter.CartAdapter
 import devs.redfox.local_e_commerce.database.AppDatabase
@@ -55,7 +56,7 @@ class CartFragment : Fragment() {
         binding.textView14.text = "Total Cost: $total"
 
         binding.checkout.setOnClickListener {
-            val intent = Intent(context, CategoryActivity::class.java)
+            val intent = Intent(context, AddressActivity::class.java)
             intent.putExtra("totalCost", total)
             startActivity(intent)
         }

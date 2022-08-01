@@ -10,6 +10,7 @@ import com.google.firebase.ktx.Firebase
 import devs.redfox.local_e_commerce.MainActivity
 import devs.redfox.local_e_commerce.R
 import devs.redfox.local_e_commerce.databinding.ActivityRegisterBinding
+import devs.redfox.local_e_commerce.model.UserModel
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -45,9 +46,14 @@ class RegisterActivity : AppCompatActivity() {
             .create()
         builder.show()
 
-        val data = hashMapOf<String, Any>()
-        data["name"] = binding.userName.text.toString()
-        data["number"] = binding.userNumber.text.toString()
+        val preferences = this.getSharedPreferences("user", MODE_PRIVATE)
+        val editor = preferences.edit()
+
+        editor.putString("number",binding.userNumber.text.toString())
+        editor.putString("name",binding.userName.text.toString())
+        editor.apply()
+
+        val data = UserModel(userName=binding.userName.text.toString(), userPhoneNumber = binding.userNumber.text.toString())
 
         Firebase.firestore.collection("users").document(binding.userNumber.text.toString())
             .set(data).addOnSuccessListener {
