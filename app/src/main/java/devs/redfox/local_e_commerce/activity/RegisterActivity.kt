@@ -21,46 +21,45 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button4.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            openLogin()
         }
 
         binding.btnRegister.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+           validateUser()
         }
     }
 
-//    private fun validateUser() {
-//        if (binding.userName.text!!.isEmpty() || binding.userNumber.text!!.isEmpty()) {
-//            Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
-//        } else {
-//            storeData()
-//        }
-//    }
+    private fun validateUser() {
+        if (binding.userName.text!!.isEmpty() || binding.userNumber.text!!.isEmpty()) {
+            Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
+        } else {
+            storeData()
+        }
+    }
 
-//    private fun storeData() {
-//        val builder = AlertDialog.Builder(this)
-//            .setTitle("Loading....")
-//            .setMessage("Please Wait")
-//            .setCancelable(false)
-//            .create()
-//        builder.show()
-//
-//        val data = hashMapOf<String, Any>()
-//        data["name"] = binding.userName.text.toString()
-//        data["number"] = binding.userNumber.text.toString()
-//
-//        Firebase.firestore.collection("users").document(binding.userNumber.text.toString())
-//            .set(data).addOnSuccessListener {
-//                Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
-//                builder.dismiss()
-//                openLogin()
-//            }
-//            .addOnFailureListener {
-//                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
-//                builder.dismiss()
-//            }
-//    }
+    private fun storeData() {
+        val builder = AlertDialog.Builder(this)
+            .setTitle("Loading....")
+            .setMessage("Please Wait")
+            .setCancelable(false)
+            .create()
+        builder.show()
+
+        val data = hashMapOf<String, Any>()
+        data["name"] = binding.userName.text.toString()
+        data["number"] = binding.userNumber.text.toString()
+
+        Firebase.firestore.collection("users").document(binding.userNumber.text.toString())
+            .set(data).addOnSuccessListener {
+                Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
+                builder.dismiss()
+                openLogin()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+                builder.dismiss()
+            }
+    }
 
     private fun openLogin() {
         startActivity(Intent(this, LoginActivity::class.java))

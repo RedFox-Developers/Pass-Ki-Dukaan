@@ -4,13 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import devs.redfox.local_e_commerce.R
 import devs.redfox.local_e_commerce.databinding.ActivityLoginBinding
+import java.util.concurrent.TimeUnit
 
 class LoginActivity : AppCompatActivity() {
 
@@ -30,15 +31,25 @@ class LoginActivity : AppCompatActivity() {
             if(binding.userNumber.text!!.isEmpty()){
                 Toast.makeText(this, "Please provide number", Toast.LENGTH_SHORT).show()
             } else {
-                sendOtp(binding.userNumber.text.toString())
+                sendOtp(binding.userNumber.text!!.toString())
             }
         }
     }
 
+    private lateinit var builder: AlertDialog
+
     private fun sendOtp(number: String) {
+
+         builder = AlertDialog.Builder(this)
+            .setTitle("Loading....")
+            .setMessage("Please Wait")
+            .setCancelable(false)
+            .create()
+        builder.show()
 
         val options = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
             .setPhoneNumber("+91$number")
+            .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(this)
             .setCallbacks(callbacks)
             .build()
@@ -60,9 +71,11 @@ class LoginActivity : AppCompatActivity() {
             verificationId: String,
             token: PhoneAuthProvider.ForceResendingToken
         ) {
+            builder.dismiss()
             val intent = Intent(this@LoginActivity, OTPActivity::class.java)
             intent.putExtra("verificationId", verificationId)
             intent.putExtra("number", binding.userNumber.text.toString())
+            startActivity(intent)
         }
     }
 }
