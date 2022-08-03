@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="12dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:fontFamily="@font/sofiaprosoftbold"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:id="@+id/productTitle"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 1200"
+            android:fontFamily="@font/sofiaprosoftregular"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:id="@+id/productPrice"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Status: Delivered"
+            android:fontFamily="@font/sofiaprosoftregular"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:id="@+id/productStatus"/>
+
+
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

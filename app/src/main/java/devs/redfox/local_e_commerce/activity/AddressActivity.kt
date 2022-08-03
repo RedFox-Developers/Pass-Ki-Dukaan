@@ -14,13 +14,17 @@ class AddressActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddressBinding
 
-    private lateinit var preferences:SharedPreferences
+    private lateinit var preferences: SharedPreferences
+
+    private lateinit var totalCost: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddressBinding.inflate(layoutInflater)
         setContentView(binding.root)
         preferences = this.getSharedPreferences("user", MODE_PRIVATE)
+
+        totalCost = intent.getStringExtra("totalCost")!!
 
         loadUserInfo()
 
@@ -44,10 +48,10 @@ class AddressActivity : AppCompatActivity() {
         state: String,
         pinCode: String
     ) {
-        if(number.isEmpty() || name.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || pinCode.isEmpty()){
-            Toast.makeText(this,"Please fill all fields",Toast.LENGTH_SHORT).show()
-        }else{
-            storeData(address,city,state,pinCode)
+        if (number.isEmpty() || name.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || pinCode.isEmpty()) {
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+        } else {
+            storeData(address, city, state, pinCode)
         }
     }
 
@@ -58,18 +62,21 @@ class AddressActivity : AppCompatActivity() {
         pinCode: String
     ) {
 
-        val map = hashMapOf<String,Any>()
+        val map = hashMapOf<String, Any>()
         map["address"] = address
         map["city"] = city
         map["state"] = state
         map["pinCode"] = pinCode
 
         Firebase.firestore.collection("users")
-            .document(preferences.getString("number","")!!)
+            .document(preferences.getString("number", "")!!)
             .update(map).addOnSuccessListener {
 
+                val b = Bundle()
+                b.putStringArrayList("productIds", intent.getStringArrayListExtra("productIds"))
+                b.putString("totalCost", totalCost)
                 val intent = Intent(this, CheckoutActivity::class.java)
-                intent.putExtra("productIds", intent.getStringArrayExtra("productIds"))
+                intent.putExtras(b)
                 startActivity(intent)
             }
             .addOnFailureListener {
@@ -77,11 +84,11 @@ class AddressActivity : AppCompatActivity() {
             }
     }
 
-    private fun loadUserInfo(){
+
+    private fun loadUserInfo() {
 
 
-
-        Firebase.firestore.collection("users").document(preferences.getString("number","")!!)
+        Firebase.firestore.collection("users").document(preferences.getString("number", "")!!)
             .get().addOnSuccessListener {
                 binding.userName.setText(it.getString("userName"))
                 binding.userNumber.setText(it.getString("userPhoneNumber"))
