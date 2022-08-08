@@ -58,11 +58,11 @@ jobs:
             ${{ runner.os }}-gradle-
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
-      - name: Building apk
-        run: ./gradlew build
+      - name: Assemble Debug
+        run: ./gradlew assembleDebug
 
       - name: Upload Apk
         uses: actions/upload-artifact@v2
         with:
           name: apk
-          path: app/build/outputs/apk/debug/apk-debug.apk
+          path: app/build/outputs/apk/debug/**.apk
