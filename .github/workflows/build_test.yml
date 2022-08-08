@@ -21,8 +21,8 @@ jobs:
           java-version: 11
       - name: Print Java Version
         run: javac -version
-      - name: Change wrapper permissions
-        run: chmod +x ./gradlew
+      - name: Validate Gradle Wrapper
+        run: gradle/wrapper-validation-action@v1
       - name: Restore Cache
         uses: actions/cache@v2
         with:
