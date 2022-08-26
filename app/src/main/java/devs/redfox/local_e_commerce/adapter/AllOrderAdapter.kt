@@ -11,7 +11,7 @@ import com.google.firebase.ktx.Firebase
 import devs.redfox.local_e_commerce.databinding.AllOrderItemLayoutBinding
 import devs.redfox.local_e_commerce.model.AllOrderModel
 
-
+//class start
 class AllOrderAdapter(val list: ArrayList<AllOrderModel>, val context: Context) :
     RecyclerView.Adapter<AllOrderAdapter.AllOrderViewHolder>() {
 
